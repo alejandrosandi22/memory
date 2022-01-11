@@ -1,0 +1,39 @@
+.ranking-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(309deg, #fff1de, #ffe3be);
+  overflow-y: scroll;
+  table{
+    margin: 20px;
+    width: 80%;
+    height: fit-content;
+    border-collapse: collapse;
+    tr{
+      width: 100%;
+      &:nth-child(1){
+        background: linear-gradient(309deg, #FF5403, #FF7800);
+      }
+      &:nth-child(even){
+        background: #ffe3be;
+      }
+      td, th{
+        padding: 10px;
+        width: calc(100% / 3);
+        font-size: 30px;
+        text-align: center;
+        &:nth-child(1){
+            width: 10%;
+        }
+      }
+      th{
+        color: #fff;
+        border: 1px solid #000;
+      }
+      td{
+        border: 1px solid #000;
+      }
+    }
+  }
+}
