@@ -28,15 +28,15 @@ $color4: #4B6587;
       height: 100%;
       background: linear-gradient(309deg, #FF5403, #FF7800);
       & > h2{
-        margin-top: -150px;
-        margin-bottom: 150px;
+        margin-top: -7.8125vw;
+        margin-bottom: 7.8125vw;
         color: #fff;
-        font-size: 4.5em;
+        font-size: 4.5vw;
       }
       .google{
         position: relative;
-        width: 300px;
-        height: 70px;
+        width: 15.625vw;
+        height: 3.646vw;
         background: #fff;
         color: #767676;
         outline: none;
@@ -45,7 +45,7 @@ $color4: #4B6587;
         align-items: center;
         justify-content: center;
         border-radius: 2px;
-        font-size: 20px;
+        font-size: 1.05vw;
         font-weight: 500;
         box-shadow: 0 5px 10px -6px #000;
         cursor: pointer;
@@ -53,16 +53,15 @@ $color4: #4B6587;
           filter: brightness(90%);
         }
         & >  img {
-          width: 30px;
-          height: 30px;
-          margin-right: 14px;
+          width: 1.563vw;
+          height: 1.563vw;
+          margin-right: 0.7292vw;
         }
       }
     }
     .ranking-wrapper{
       width: 60%;
       height: 100%;
-      background: #fff;
     }
   }
 }
