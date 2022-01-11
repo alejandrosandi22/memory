@@ -1,0 +1,100 @@
+.game-container{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(309deg, #fff1de, #ffe3be);
+  background: #fff1de;
+  perspective: 1000px;
+  .restart-wrapper{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4vh;
+    .restart{
+      width: 10vw;
+      height: 7vh;
+      outline: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 1.1vw;
+      background: #FF5403;
+      border: 1px solid #fff;
+      color: #fff;
+      border-radius: 50px;
+      background: #FF5403;
+      box-shadow: inset 19px 19px 7px #d94703,
+        inset -19px -19px 7px #ff6103;
+      &:hover{
+        background: linear-gradient(145deg, #ff5a03, #e64c03);
+        box-shadow:  0px 0px 0px #fc5303,
+          0px 0px 0px #ff5503;
+      }
+      &:active{
+        filter: brightness(105%);
+      }
+    }
+    .options-wrapper{
+      display: flex;
+      .attemps-wrapper, .time-wrapper{
+        & > h3, & > span {
+          text-transform: uppercase;
+          display: block;
+          text-align: center;
+          color: #000;
+          font-size: 30px;
+          font-weight: 500;
+          margin: 0 30px;
+        }
+        & > h3{
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  .cards-wrapper{
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 80vw;
+    height: 70vh;
+    .card{
+      position: relative;
+      width: calc((80vw / 6) - 20px);
+      height: calc((70vh / 3) - 20px);
+      transform-style: preserve-3d;
+      cursor: pointer;
+      box-shadow: 0 0 10px -5px #000;
+      transition: .5s;
+      &:hover{
+        filter: brightness(90%);
+      }
+      .face{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backface-visibility: hidden;
+        & > i{
+          color: #fff;
+          font-size: 3vw;
+        }
+      }
+      .front{
+        background: linear-gradient(309deg, #FF5403, #FF7800);
+      }
+      .back{
+        background: #FF9300;
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}
