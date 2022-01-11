@@ -6,7 +6,7 @@
   background: linear-gradient(309deg, #fff1de, #ffe3be);
   overflow-y: scroll;
   table{
-    margin: 20px;
+    margin: 2.5vw;
     width: 80%;
     height: fit-content;
     border-collapse: collapse;
@@ -21,18 +21,15 @@
       td, th{
         padding: 10px;
         width: calc(100% / 3);
-        font-size: 30px;
+        font-size: 1.5vw;
         text-align: center;
+        border: 1px solid linear-gradient(309deg, #fff1de, #ffe3be);
         &:nth-child(1){
             width: 10%;
         }
       }
       th{
         color: #fff;
-        border: 1px solid #000;
-      }
-      td{
-        border: 1px solid #000;
       }
     }
   }
