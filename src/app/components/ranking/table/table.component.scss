@@ -1,0 +1,34 @@
+.table-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    table{
+      margin: 2.5vw;
+      width: 80%;
+      height: fit-content;
+      border-collapse: collapse;
+      tr{
+        width: 100%;
+        &:nth-child(1){
+          background: linear-gradient(309deg, #FF5403, #FF7800);
+        }
+        &:nth-child(even){
+          background: #ffe3be;
+        }
+        td, th{
+          padding: 10px;
+          width: calc(100% / 3);
+          font-size: 1.5vw;
+          text-align: center;
+          border: 1px solid linear-gradient(309deg, #fff1de, #ffe3be);
+          &:nth-child(1){
+              width: 10%;
+          }
+        }
+        th{
+          color: #fff;
+        }
+      }
+    }
+  }
