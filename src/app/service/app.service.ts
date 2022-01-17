@@ -47,6 +47,7 @@ export class AppService{
   }
 
   pushCards(){
+    this.cards = [];
     for(let i = 0; i < 18; i++){
       this.cards.push(this.allCards[this.randomId[i]])
     }
