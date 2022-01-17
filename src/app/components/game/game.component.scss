@@ -93,9 +93,16 @@
         transform: rotateY(180deg);
       }
     }
-    .rotate, .equality{
+    .rotate{
       transform: rotateY(180deg);
       transition: .5s;
+    }
+    .equality{
+      transform: rotateY(180deg);
+      transition: .5s;
+      .back{
+        filter: brightness(90%)
+      }
     }
   }
 }
