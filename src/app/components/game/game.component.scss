@@ -72,9 +72,6 @@
       cursor: pointer;
       box-shadow: 0 0 10px -5px #000;
       transition: .5s;
-      &:hover{
-        filter: brightness(90%);
-      }
       .face{
         position: absolute;
         width: 100%;
@@ -95,6 +92,10 @@
         background: #FF9300;
         transform: rotateY(180deg);
       }
+    }
+    .rotate, .equality{
+      transform: rotateY(180deg);
+      transition: .5s;
     }
   }
 }

@@ -1,90 +1,22 @@
 <div class="game-container">
   <app-nav></app-nav>
   <div class="restart-wrapper">
-      <button class="restart">Restart</button>
+      <button (click)="restart()" class="restart">Restart</button>
       <div class="options-wrapper">
         <div class="attemps-wrapper">
           <h3>Attemps</h3>
-          <span>0</span>
+          <span>{{ attemps }}</span>
         </div>
         <div class="time-wrapper">
           <h3>Time</h3>
-          <span>0:00</span>
+          <span>{{ timer }}</span>
         </div>
       </div>
   </div>
   <div class="cards-wrapper">
-    <div class="card">
+    <div *ngFor="let card of app.cards; index as i" class="card" (click)="selectCard(i, card)" [ngClass]="{'rotate': firstSelectedCard === i || secondSelectedCard === i}">
       <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
-    </div>
-    <div class="card">
-      <div class="front face"><i class="fal fa-question"></i></div>
-      <div class="back face"><i class="fal fa-star"></i></div>
+      <div class="back face"><i ngClass="{{card.shape}}"></i></div>
     </div>
   </div>
 </div>
