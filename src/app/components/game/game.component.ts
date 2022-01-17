@@ -48,7 +48,12 @@ export class GameComponent implements OnInit {
   selectCard(i:any, card:any){
     if (!this.verificationInProgress) {
       for (let r = 0; r <= this.equalityCards.length; r++) {
-        i === this.equalityCards[r] ? this.accurateAnswer = true : this.accurateAnswer = false;
+        if (i === this.equalityCards[r]) {
+          this.accurateAnswer = true;
+          break;
+        } else {
+          this.accurateAnswer = false;
+        }
       }
       if (!this.accurateAnswer) {
         if (this.actualCard != i) {
