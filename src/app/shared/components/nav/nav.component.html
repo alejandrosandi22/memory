@@ -3,7 +3,7 @@
     <ul>
         <li><a routerLink="/game">Game</a></li>
         <li><a routerLink="/ranking">Ranking</a></li>
-        <li *ngIf="!logged" ><a href="#">Sign In</a></li>
+        <li *ngIf="!logged" ><a routerLink="/signin">Sign In</a></li>
         <li *ngIf="logged">Thomas Gould <i class="fal fa-sign-out"></i></li>
     </ul>
 </div>
