@@ -42,7 +42,9 @@ export class GameComponent implements OnInit {
       document.getElementById(`card_${this.equalityCards[i]}`)?.classList.remove('equality');
     }
     this.equalityCards = [];
-    this.app.getRandomId();
+    setTimeout(() => {
+      this.app.getRandomId();
+    },600)
   }
 
   selectCard(i:any, card:any){
@@ -69,10 +71,12 @@ export class GameComponent implements OnInit {
               this.actualCard = NaN;
               this.equalityCards.push(this.firstSelectedCard, this.secondSelectedCard);
               this.selectedCards = [];
-              document.getElementById(`card_${this.firstSelectedCard}`)?.classList.add('equality');
-              document.getElementById(`card_${this.secondSelectedCard}`)?.classList.add('equality');
               this.verificationInProgress = true;
               this.equalityCards.length === 18 ? this.win = true : this.win = false;
+              setTimeout(() => {
+                document.getElementById(`card_${this.firstSelectedCard}`)?.classList.add('equality');
+                document.getElementById(`card_${this.secondSelectedCard}`)?.classList.add('equality');
+              },800)
               setTimeout(() => {
                 this.firstSelectedCard = NaN;
                 this.secondSelectedCard = NaN;
