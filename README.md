@@ -2,7 +2,7 @@
 
 ##URL
 
-[Open Proyect https://memory.ga](https://memory.ga) or from my portfolio [alejandrosandi.ml](https://alejandrosandi.ml)
+[Open Proyect https://memory.ga](https://memory.ga)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
