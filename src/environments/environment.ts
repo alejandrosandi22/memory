@@ -4,12 +4,12 @@
 import firebase from 'firebase/compat/app';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDpxhHljVi-LZ57UM2GtighOrYNE1D-iqw",
-  authDomain: "memory-eafa3.firebaseapp.com",
-  projectId: "memory-eafa3",
-  storageBucket: "memory-eafa3.appspot.com",
-  messagingSenderId: "619899085616",
-  appId: "1:619899085616:web:3d43cd941177d3a1711ef5"
+  apiKey: "",
+  authDomain: "",
+  projectId: "3",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
 };
 
 firebase.initializeApp(firebaseConfig);
