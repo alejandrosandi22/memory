@@ -20,11 +20,7 @@ export class SigninComponent implements OnInit {
     const auth = getAuth()
     signInWithPopup(auth, googleProvider)
     .then(() => {
-      console.log('Welcome')
       location.replace('/game')
-    })
-    .catch((error) => {
-      console.log(error)
     })
   }
 

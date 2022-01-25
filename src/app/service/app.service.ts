@@ -71,7 +71,6 @@ export class AppService{
         this.logged = true;
         this.user_name = user.displayName;
         this.user_uid = user.uid;
-        console.log(user.displayName)
       } else {
         this.logged = false;
         this.user_name = 'Guest';
@@ -122,6 +121,5 @@ export class AppService{
         this.rankingUsers.push(doc.data())
       })
     }))
-    console.log(this.rankingUsers)
   }
 }
