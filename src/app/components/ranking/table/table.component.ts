@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/service/app.service';
 
 @Component({
   selector: 'app-table',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
-  constructor() { }
+  constructor(public app: AppService) { }
 
   ngOnInit(): void {
+    this.app.loadRanking();
   }
 
 }
