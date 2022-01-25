@@ -3,7 +3,7 @@
     <ul>
         <li><a routerLink="/game">Game</a></li>
         <li><a routerLink="/ranking">Ranking</a></li>
-        <li *ngIf="!logged" ><a routerLink="/signin">Sign In</a></li>
-        <li *ngIf="logged">Thomas Gould <i class="fal fa-sign-out"></i></li>
+        <li *ngIf="!app.logged" ><a routerLink="/signin">Sign In</a></li>
+        <li *ngIf="app.logged">{{ app.user_name }} <i (click)="app.signOut()" class="fal fa-sign-out"></i></li>
     </ul>
 </div>

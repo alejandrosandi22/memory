@@ -10,7 +10,6 @@ export class GameComponent implements OnInit {
 
   
   gameStart: boolean = false;
-  timer: string = '0:00';
   hour: number = 0;
   minutes: number = 0;
   actualCard: number;
@@ -18,7 +17,6 @@ export class GameComponent implements OnInit {
   secondSelectedCard: number;
   selectedCards: Array<number> = [];
   equalityCards: Array<any> = [];
-  attemps:number = 0;
   accurateAnswer:boolean = false;
   verificationInProgress:boolean = false;
   win:boolean = false;
@@ -27,14 +25,16 @@ export class GameComponent implements OnInit {
   
   ngOnInit(): void {
     this.app.getRandomId();
+    this.app.loadRanking();
   }
 
   restart(){
     this.gameStart = false;
     this.minutes = -1;
     this.hour = 0;
-    this.timer = '0:00';
-    this.attemps = 0;
+    this.app.attemps = 0;
+    this.app.speed = '0:00';
+    this.app.time = 0;
     this.actualCard = NaN;
     this.firstSelectedCard = NaN;
     this.secondSelectedCard = NaN;
@@ -66,7 +66,7 @@ export class GameComponent implements OnInit {
           } else {
             this.selectedCards.push(card.id);
             this.secondSelectedCard = i;
-            this.attemps++;
+            this.app.attemps++;
             if (this.selectedCards[0] === this.selectedCards[1]) {
               this.actualCard = NaN;
               this.equalityCards.push(this.firstSelectedCard, this.secondSelectedCard);
@@ -81,7 +81,13 @@ export class GameComponent implements OnInit {
                 this.firstSelectedCard = NaN;
                 this.secondSelectedCard = NaN;
                 this.verificationInProgress = false;
-                if (this.win) this.restart();
+                if (this.win){
+                  this.app.addRankingData();
+                  setTimeout(() => {
+                    this.win = false;
+                    this.restart();
+                  },10000)
+                }
               },1000)
             } else {
               this.actualCard = NaN;
@@ -109,14 +115,15 @@ export class GameComponent implements OnInit {
       setInterval(() => {
           if (this.gameStart) {
           this.minutes++;
+          this.app.time++;
           if ( this.minutes === 60) {
             this.hour++;
             this.minutes = 0;
           }
           if (this.minutes < 10) {
-            this.timer = `${this.hour}:0${this.minutes}`;
+            this.app.speed = `${this.hour}:0${this.minutes}`;
           } else {
-            this.timer = `${this.hour}:${this.minutes}`;
+            this.app.speed = `${this.hour}:${this.minutes}`;
           }
         }
       },1000)

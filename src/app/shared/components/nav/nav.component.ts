@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/service/app.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,11 +10,10 @@ export class NavComponent implements OnInit {
 
   logged: boolean;
 
-  constructor() {
-    this.logged = false;
-  }
+  constructor(public app: AppService) {}
 
   ngOnInit(): void {
+    this.app.getCurrentUser();
   }
 
 }
