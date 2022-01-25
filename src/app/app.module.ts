@@ -8,6 +8,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { GameComponent } from './components/game/game.component';
 import { NavComponent } from './shared/components/nav/nav.component';
 import { TableComponent } from './components/ranking/table/table.component';
+import { WinComponent } from './shared/components/win/win.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TableComponent } from './components/ranking/table/table.component';
     GameComponent,
     NavComponent,
     TableComponent,
+    WinComponent
   ],
   imports: [
     BrowserModule,

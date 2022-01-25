@@ -1,5 +1,6 @@
 <div class="game-container">
   <app-nav></app-nav>
+  <app-win *ngIf="app.win"></app-win>
   <div class="restart-wrapper">
       <button (click)="restart()" class="restart">Restart</button>
       <div class="options-wrapper">

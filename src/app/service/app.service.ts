@@ -7,6 +7,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 })
 export class AppService{
 
+  win: boolean = false;
   attemps: number = 0;
   speed: string = '0:00';
   time: number = 0;

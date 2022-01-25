@@ -19,7 +19,6 @@ export class GameComponent implements OnInit {
   equalityCards: Array<any> = [];
   accurateAnswer:boolean = false;
   verificationInProgress:boolean = false;
-  win:boolean = false;
   
   constructor(public app: AppService) {}
   
@@ -72,7 +71,7 @@ export class GameComponent implements OnInit {
               this.equalityCards.push(this.firstSelectedCard, this.secondSelectedCard);
               this.selectedCards = [];
               this.verificationInProgress = true;
-              this.equalityCards.length === 18 ? this.win = true : this.win = false;
+              this.equalityCards.length === 18 ? this.app.win = true : this.app.win = false;
               setTimeout(() => {
                 document.getElementById(`card_${this.firstSelectedCard}`)?.classList.add('equality');
                 document.getElementById(`card_${this.secondSelectedCard}`)?.classList.add('equality');
@@ -81,10 +80,11 @@ export class GameComponent implements OnInit {
                 this.firstSelectedCard = NaN;
                 this.secondSelectedCard = NaN;
                 this.verificationInProgress = false;
-                if (this.win){
+                if (this.app.win){
                   this.app.addRankingData();
+                  this.gameStart = false;
                   setTimeout(() => {
-                    this.win = false;
+                    this.app.win = false;
                     this.restart();
                   },10000)
                 }
