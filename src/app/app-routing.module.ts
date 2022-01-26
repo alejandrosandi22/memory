@@ -5,11 +5,11 @@ import { RankingComponent } from './components/ranking/ranking.component';
 import { SigninComponent } from './components/signin/signin.component';
 
 const routes: Routes = [
-  { path: 'game', component: GameComponent },
-  { path: '', redirectTo: 'game', pathMatch: 'full' },
+  { path: '', redirectTo: 'signin', pathMatch: 'full' },
   { path: 'signin', component: SigninComponent },
+  { path: 'game', component: GameComponent },
   { path: 'ranking', component: RankingComponent },
-  { path: '**', redirectTo: 'game' }
+  { path: '**', redirectTo: 'signin' }
 ];
 
 @NgModule({

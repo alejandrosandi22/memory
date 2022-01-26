@@ -7,7 +7,7 @@ import firebase from 'firebase/compat/app';
 const firebaseConfig = {
   apiKey: "",
   authDomain: "",
-  projectId: "3",
+  projectId: "",
   storageBucket: "",
   messagingSenderId: "",
   appId: ""
