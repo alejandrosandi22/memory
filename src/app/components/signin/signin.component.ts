@@ -11,9 +11,7 @@ export class SigninComponent implements OnInit {
 
   constructor(public app: AppService) { }
 
-  ngOnInit(): void {
-    this.app.getCurrentUser();
-  }
+  ngOnInit(): void {}
 
   signInWithGoogle() {
     const googleProvider = new GoogleAuthProvider();
