@@ -76,6 +76,7 @@ export class AppService{
         this.logged = true;
         this.user_name = user.displayName;
         this.user_uid = user.uid;
+        location.replace('/#/game');
       } else {
         this.logged = false;
         this.user_name = `Guest_${this.guestId}`;

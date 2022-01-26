@@ -68,10 +68,10 @@ export class GameComponent implements OnInit {
               this.equalityCards.push(this.firstSelectedCard, this.secondSelectedCard);
               this.selectedCards = [];
               this.verificationInProgress = true;
-              this.equalityCards.length === 18 ? this.app.win = true : this.app.win = false;
               await setTimeout(() => {
                 document.getElementById(`card_${this.firstSelectedCard}`)?.classList.add('equality');
                 document.getElementById(`card_${this.secondSelectedCard}`)?.classList.add('equality');
+                this.equalityCards.length === 18 ? this.app.win = true : this.app.win = false;
               },800)
               await setTimeout(() => {
                 this.firstSelectedCard = NaN;

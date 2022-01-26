@@ -94,3 +94,28 @@
     }
   }
 }
+
+@mixin win {
+  @media (max-width: 768px) {
+    .win-container{
+      .popup{
+        height: 40vh;
+        width: 80vw;
+        & > h1{
+          font-size: 4vh
+        }
+        & > div{
+          label{
+            font-size: 2vh;
+            margin: 2vh;
+          }
+        }
+        & > button{
+          width: 10.5vh;
+          height: 8vw;
+          font-size: 1.1vh;
+        }
+      }
+    }
+  }
+}
