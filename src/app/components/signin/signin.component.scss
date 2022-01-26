@@ -1,8 +1,4 @@
-$background: #F7F6F2;
-$color1: #F0E5CF;
-$color2: #000957;
-$color3: #C8C6C6;
-$color4: #4B6587;
+@use '../../shared/sass/responsive.scss';
 
 .signin-container{
   display: flex;
@@ -75,3 +71,5 @@ $color4: #4B6587;
     }
   }
 }
+
+@include responsive.signin();

@@ -1,3 +1,5 @@
+@use '../../shared/sass/responsive.scss';
+
 .game-container{
   width: 100vw;
   height: 100vh;
@@ -45,9 +47,6 @@
           font-size: 1.5vw;
           font-weight: 500;
           margin: 0 2vw;
-        }
-        & > h3{
-          font-size: 1.5vw;
         }
       }
     }
@@ -108,3 +107,5 @@
     }
   }
 }
+
+@include responsive.game();
