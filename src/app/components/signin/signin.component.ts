@@ -12,6 +12,7 @@ export class SigninComponent implements OnInit {
   constructor(public app: AppService) { }
 
   ngOnInit(): void {
+    this.app.getCurrentUser();
   }
 
   signInWithGoogle() {
@@ -20,7 +21,7 @@ export class SigninComponent implements OnInit {
     const auth = getAuth()
     signInWithPopup(auth, googleProvider)
     .then(() => {
-      location.replace('/game')
+      location.replace('/#/game')
     })
   }
 
