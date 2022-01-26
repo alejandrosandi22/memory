@@ -7,11 +7,7 @@ import { AppService } from 'src/app/service/app.service';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-
   
-  gameStart: boolean = false;
-  hour: number = 0;
-  minutes: number = 0;
   actualCard: number;
   firstSelectedCard: number;
   secondSelectedCard: number;
@@ -25,12 +21,13 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.app.getRandomId();
     this.app.loadRanking();
+    this.restart();
   }
 
-  restart(){
-    this.gameStart = false;
-    this.minutes = -1;
-    this.hour = 0;
+  async restart(){
+    this.app.gameStart = false;
+    this.app.minutes = -1;
+    this.app.hour = 0;
     this.app.attemps = 0;
     this.app.speed = '0:00';
     this.app.time = 0;
@@ -41,12 +38,12 @@ export class GameComponent implements OnInit {
       document.getElementById(`card_${this.equalityCards[i]}`)?.classList.remove('equality');
     }
     this.equalityCards = [];
-    setTimeout(() => {
+    await setTimeout(() => {
       this.app.getRandomId();
     },600)
   }
 
-  selectCard(i:any, card:any){
+  async selectCard(i:any, card:any){
     if (!this.verificationInProgress) {
       for (let r = 0; r <= this.equalityCards.length; r++) {
         if (i === this.equalityCards[r]) {
@@ -72,17 +69,17 @@ export class GameComponent implements OnInit {
               this.selectedCards = [];
               this.verificationInProgress = true;
               this.equalityCards.length === 18 ? this.app.win = true : this.app.win = false;
-              setTimeout(() => {
+              await setTimeout(() => {
                 document.getElementById(`card_${this.firstSelectedCard}`)?.classList.add('equality');
                 document.getElementById(`card_${this.secondSelectedCard}`)?.classList.add('equality');
               },800)
-              setTimeout(() => {
+              await setTimeout(() => {
                 this.firstSelectedCard = NaN;
                 this.secondSelectedCard = NaN;
                 this.verificationInProgress = false;
                 if (this.app.win){
                   this.app.addRankingData();
-                  this.gameStart = false;
+                  this.app.gameStart = false;
                   setTimeout(() => {
                     this.app.win = false;
                     this.restart();
@@ -93,7 +90,7 @@ export class GameComponent implements OnInit {
               this.actualCard = NaN;
               this.selectedCards = [];
               this.verificationInProgress = true;
-              setTimeout(() => {
+              await setTimeout(() => {
                 this.firstSelectedCard = NaN;
                 this.secondSelectedCard = NaN;
                 this.verificationInProgress = false;
@@ -104,29 +101,30 @@ export class GameComponent implements OnInit {
       }
     }
 
-
-    if (!this.gameStart) {
-      this.gameStart = true;
+    if (!this.app.gameStart) {
+      this.app.gameStart = true;
       this.chronometer();
     }
   }
 
   chronometer(){
-      setInterval(() => {
-          if (this.gameStart) {
-          this.minutes++;
-          this.app.time++;
-          if ( this.minutes === 60) {
-            this.hour++;
-            this.minutes = 0;
-          }
-          if (this.minutes < 10) {
-            this.app.speed = `${this.hour}:0${this.minutes}`;
-          } else {
-            this.app.speed = `${this.hour}:${this.minutes}`;
-          }
+    const timer = setInterval(() => {
+      console.log(`Interval => start: ${this.app.gameStart}, hour: ${this.app.hour}, minutes: ${this.app.minutes}, time: ${this.app.time}`)
+      if (this.app.gameStart) {
+        this.app.minutes++;
+        this.app.time++;
+        if ( this.app.minutes === 60) {
+          this.app.hour++;
+          this.app.minutes = 0;
         }
-      },1000)
+        if (this.app.minutes < 10) {
+          this.app.speed = `${this.app.hour}:0${this.app.minutes}`;
+        } else {
+          this.app.speed = `${this.app.hour}:${this.app.minutes}`;
+        }
+      } else {
+        clearInterval(timer);
+      }
+    },1000)
   }
-
 }

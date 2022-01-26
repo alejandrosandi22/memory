@@ -1,4 +1,4 @@
-import { Component, OnInit} from "@angular/core";
+import { Component, OnInit, Output, EventEmitter} from "@angular/core";
 import { AppService } from "src/app/service/app.service";
 
 @Component({
@@ -8,6 +8,10 @@ import { AppService } from "src/app/service/app.service";
 })
 export class WinComponent implements OnInit{
 
+  @Output() outputEvent = new EventEmitter<boolean>();
+
+  restart: boolean = false;
+
   constructor(public app: AppService){}
 
   ngOnInit(): void {
@@ -15,5 +19,6 @@ export class WinComponent implements OnInit{
 
   close(){
     this.app.win = false;
+    this.outputEvent.emit(this.restart)
   }
 }

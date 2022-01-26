@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { doc, setDoc, getFirestore, orderBy, query, collection, onSnapshot, addDoc} from "firebase/firestore";
+import { doc, setDoc, getFirestore, orderBy, query, collection, onSnapshot, addDoc, getDoc} from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 @Injectable({
@@ -11,14 +11,19 @@ export class AppService{
   attemps: number = 0;
   speed: string = '0:00';
   time: number = 0;
+  hour: number = 0;
+  minutes: number = 0;
   rankingUsers: Array<any> = [];
   allCards: Array<any>;
   cards: Array<any>;
   randomId: Array<number>;
   logged: boolean = false;
   db: any = getFirestore();
-  user_name: any = 'Guest';
-  user_uid: string = '';
+  guestId: number = 0;
+  user_name: any = `Guest_${this.guestId}`;
+  user_uid: string = 'undefined';
+  firstUserGame: boolean = true;
+  gameStart: boolean = false;
 
   constructor() {
     this.randomId = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
@@ -73,8 +78,8 @@ export class AppService{
         this.user_uid = user.uid;
       } else {
         this.logged = false;
-        this.user_name = 'Guest';
-        this.user_uid = '';
+        this.user_name = `Guest_${this.guestId}`;
+        this.user_uid = 'undefined';
       }
     });
   }
@@ -85,41 +90,43 @@ export class AppService{
   }
 
   async addRankingData(){
+    console.log('Usuario existente: ' + this.user_uid)
+    let average = (this.attemps + this.time) / 2;
+
+    const docRef = doc(this.db, 'ranking', this.user_uid);
+    const docSnap = await getDoc(docRef);
+
     let user_data = {
       name: this.user_name,
       time: this.time,
       speed: this.speed,
-      attemps: this.attemps
+      attemps: this.attemps,
+      average: average
     }
 
-    const rankingCollection = collection(this.db, 'ranking')
-    const q = query(rankingCollection, orderBy('attemps', 'asc'))
-
-    if (this.user_uid != '') {
-      onSnapshot(q, (snapchot => {
-        snapchot.docs.forEach(async (d) => {
-          let data = d.data();
-            if (data['time'] > this.time || data['attemps'] > this.attemps) {
-              if (d.id === this.user_uid) {
-                await setDoc(doc(this.db, 'ranking', this.user_uid), user_data)
-              }
-            }
-        })
-      }))
+    if (this.user_uid != 'undefined') {
+      if (docSnap.exists()) {
+        if (docSnap.data()['average'] > ((this.attemps + this.time) / 2)){
+          await setDoc(doc(this.db, 'ranking', this.user_uid), user_data);
+        }
+      } else {
+        await setDoc(doc(this.db, 'ranking', this.user_uid), user_data);
+      }
     } else {
       await addDoc(collection(this.db, 'ranking'), user_data);
-    }
+    }  
   }
 
-  loadRanking() {
+  async loadRanking() {
     const rankingCollection = collection(this.db, 'ranking')
-    const q = query(rankingCollection, orderBy('attemps', 'asc'))
+    const q = query(rankingCollection, orderBy('average', 'asc'))
 
-    onSnapshot(q, (snapchot => {
+    await onSnapshot(q, (async snapchot => {
       this.rankingUsers = [];
-      snapchot.docs.forEach((doc) => {
+      await snapchot.docs.forEach((doc) => {
         this.rankingUsers.push(doc.data())
+        this.guestId++;
       })
-    }))
+    })) 
   }
 }

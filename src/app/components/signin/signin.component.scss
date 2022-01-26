@@ -58,6 +58,16 @@ $color4: #4B6587;
           margin-right: 0.7292vw;
         }
       }
+      .skip-ref{
+        color: #ffe3be;
+        margin: 1vw;;
+        font-size: 1vw;
+        text-decoration: underline #ffe3be;
+        cursor: pointer;
+        &:hover{
+          color: #FFE3BEBB;
+        }
+      }
     }
     .ranking-wrapper{
       width: 60%;
