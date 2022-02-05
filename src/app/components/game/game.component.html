@@ -1,25 +1,25 @@
 <div class="game-container">
   <app-nav></app-nav>
   <app-win *ngIf="app.win" (outputEvent)="restart()"></app-win>
-  <div class="restart-wrapper">
-      <button (click)="restart()" class="restart">Restart</button>
-      <div class="options-wrapper">
-        <div class="attemps-wrapper">
-          <h3>Attemps</h3>
-          <span>{{ app.attemps }}</span>
-        </div>
-        <div class="time-wrapper">
-          <h3>Time</h3>
-          <span>{{ app.speed }}</span>
-        </div>
-      </div>
-  </div>
   <div class="cards-wrapper">
     <div id="card_{{i}}" *ngFor="let card of app.cards; index as i" class="card"
     (click)="selectCard(i, card)"
     [ngClass]="{'rotate': firstSelectedCard === i || secondSelectedCard === i}">
-      <div class="front face"><i class="fal fa-question"></i></div>
+      <div class="front face"><i class="fas fa-question"></i></div>
       <div class="back face"><i ngClass="{{card.shape}}"></i></div>
     </div>
   </div>
+  <div class="restart-wrapper">
+    <button (click)="restart()" class="restart">Restart</button>
+    <div class="options-wrapper">
+      <div class="attemps-wrapper">
+        <h3>Attemps:</h3>
+        <span>{{ app.attemps }}</span>
+      </div>
+      <div class="time-wrapper">
+        <h3>Time:</h3>
+        <span>{{ app.speed }}</span>
+      </div>
+    </div>
+</div>
 </div>

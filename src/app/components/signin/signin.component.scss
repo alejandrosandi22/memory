@@ -6,7 +6,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(309deg, #fff1de, #ffe3be);
+  background: #fff;
   overflow: hidden;
   .auth-container{
     display: flex;
@@ -14,7 +14,7 @@
     align-items: center;
     height: 80vh;
     width: 80vw;
-    box-shadow: 0 0 60px -10px #000;
+    box-shadow: 0 0 5rem -1rem #000;
     .signin-wrapper{
       display: flex;
       flex-direction: column;
@@ -24,15 +24,15 @@
       height: 100%;
       background: linear-gradient(309deg, #FF5403, #FF7800);
       & > h2{
-        margin-top: -7.8125vw;
-        margin-bottom: 7.8125vw;
+        margin-top: -2.8125rem;
+        margin-bottom: 2.8125rem;
         color: #fff;
-        font-size: 4.5vw;
+        font-size: 4.5rem;
       }
       .google{
         position: relative;
-        width: 15.625vw;
-        height: 3.646vw;
+        width: 15.625rem;
+        height: 3.646rem;
         background: #fff;
         color: #767676;
         outline: none;
@@ -40,24 +40,24 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 2px;
-        font-size: 1.05vw;
+        border-radius: .2rem;
+        font-size: 1.05rem;
         font-weight: 500;
-        box-shadow: 0 5px 10px -6px #000;
+        box-shadow: 0 .5rem 1rem -0.6rem #000;
         cursor: pointer;
         &:hover{
           filter: brightness(90%);
         }
         & >  img {
-          width: 1.563vw;
-          height: 1.563vw;
-          margin-right: 0.7292vw;
+          width: 1.563rem;
+          height: 1.563rem;
+          margin-right: 0.7292rem;
         }
       }
       .skip-ref{
         color: #ffe3be;
-        margin: 1vw;;
-        font-size: 1vw;
+        margin: 1rem;
+        font-size: 1rem;
         text-decoration: underline #ffe3be;
         cursor: pointer;
         &:hover{
