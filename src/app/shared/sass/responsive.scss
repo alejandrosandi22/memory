@@ -38,9 +38,11 @@
 @mixin nav {
   @media (max-width: 720px){
     .nav-container{
+      .title{
+        margin: 0 3rem;
+      }
       & > ul{
         & > li{
-          margin: 1rem;
           &:nth-child(3){
             font-size: 0;
             i{
@@ -54,7 +56,7 @@
 }
 
 @mixin win {
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .win-container{
       .popup{
         height: 40vh;
