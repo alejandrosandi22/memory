@@ -26,26 +26,24 @@ export class AppService{
   gameStart: boolean = false;
 
   constructor() {
-    this.randomId = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+    this.randomId = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     this.allCards = [
       {id: 1, shape: 'fas fa-star'},
       {id: 2, shape: 'far fa-circle'},
       {id: 3, shape: 'fal fa-asterisk'},
       {id: 4, shape: 'far fa-acorn'},
       {id: 5, shape: 'fal fa-triangle'},
-      {id: 6, shape: 'fal fa-square'},
-      {id: 7, shape: 'fal fa-carrot'},
-      {id: 8, shape: 'fas fa-apple-alt'},
-      {id: 9, shape: 'fal fa-book-alt'},
+      {id: 6, shape: 'fal fa-carrot'},
+      {id: 7, shape: 'fal fa-pepper-hot'},
+      {id: 8, shape: 'far fa-lemon'},
       {id: 1, shape: 'fas fa-star'},
       {id: 2, shape: 'far fa-circle'},
       {id: 3, shape: 'fal fa-asterisk'},
       {id: 4, shape: 'far fa-acorn'},
       {id: 5, shape: 'fal fa-triangle'},
-      {id: 6, shape: 'fal fa-square'},
-      {id: 7, shape: 'fal fa-carrot'},
-      {id: 8, shape: 'fas fa-apple-alt'},
-      {id: 9, shape: 'fal fa-book-alt'},
+      {id: 6, shape: 'fal fa-carrot'},
+      {id: 7, shape: 'fal fa-pepper-hot'},
+      {id: 8, shape: 'far fa-lemon'}
     ]
     this.cards = [];
   }
@@ -64,7 +62,7 @@ export class AppService{
 
   pushCards(){
     this.cards = [];
-    for(let i = 0; i < 18; i++){
+    for(let i = 0; i < 16; i++){
       this.cards.push(this.allCards[this.randomId[i]])
     }
   }
@@ -90,7 +88,6 @@ export class AppService{
   }
 
   async addRankingData(){
-    console.log('Usuario existente: ' + this.user_uid)
     let average = (this.attemps + this.time) / 2;
 
     const docRef = doc(this.db, 'ranking', this.user_uid);

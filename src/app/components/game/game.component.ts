@@ -71,7 +71,7 @@ export class GameComponent implements OnInit {
               await setTimeout(() => {
                 document.getElementById(`card_${this.firstSelectedCard}`)?.classList.add('equality');
                 document.getElementById(`card_${this.secondSelectedCard}`)?.classList.add('equality');
-                this.equalityCards.length === 18 ? this.app.win = true : this.app.win = false;
+                this.equalityCards.length === 16 ? this.app.win = true : this.app.win = false;
               },800)
               await setTimeout(() => {
                 this.firstSelectedCard = NaN;
@@ -109,7 +109,6 @@ export class GameComponent implements OnInit {
 
   chronometer(){
     const timer = setInterval(() => {
-      console.log(`Interval => start: ${this.app.gameStart}, hour: ${this.app.hour}, minutes: ${this.app.minutes}, time: ${this.app.time}`)
       if (this.app.gameStart) {
         this.app.minutes++;
         this.app.time++;

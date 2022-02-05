@@ -3,16 +3,17 @@
 .nav-container{
   width: 100vw;
   height: 8vh;
+  margin-bottom: 2vh;
   display: flex;
   border-radius: 100px;
   margin-top: 10px;
-  box-shadow: 0 0 10px -5px #000;
+  box-shadow: 0 3px 10px -8px #000;
   .title{
     color: #000;
     display: flex;
     align-items: center;
-    margin: 0 7vw;
-    font-size: 2vw;
+    margin: 0 7rem;
+    font-size: 2rem;
     text-transform: uppercase;
     font-weight: 300;
   }
@@ -20,20 +21,20 @@
     list-style: none;
     width: 100%;
     height: 100%;
-    padding-right: 5vw;
+    padding-right: 4rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     & > li{
-      margin: 0 3vw;
+      margin: 0 1rem;
       text-decoration: none;
       color: #000;
-      font-size: 1.3vw;
+      font-size: 1.3rem;
       font-weight: 300;
       cursor: default;
       & > i{
         cursor: pointer;
-        margin-left: 20px;
+        margin-left: 2rem;
         &:hover{
           border-bottom: 1px solid #000;
         }
@@ -41,7 +42,7 @@
       a{
         text-decoration: none;
         color: #000;
-        font-size: 1.3vw;
+        font-size: 1.3rem;
         font-weight: 300;
         &:hover{
           border-bottom: 1px solid #000;

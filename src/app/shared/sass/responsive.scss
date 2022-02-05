@@ -1,28 +1,11 @@
 @mixin signin {
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .signin-container{
       .auth-container{
         flex-direction: column;
         .signin-wrapper{
           width: 100%;
           height: 50%;
-          & > h2{
-            font-size: 5vh;
-          }
-          .google{
-            width: 17.773vh;
-            height: 4.148vh;
-            font-size: 1.05vh;
-            & >  img {
-              width: 1.563vh;
-              height: 1.563vh;
-              margin-right: 0.7292vh;
-            }
-          }
-          .skip-ref{
-            margin: 1vh;
-            font-size: 1.1vh;
-          }
         }
         .ranking-wrapper{
           width: 100%;
@@ -34,60 +17,35 @@
 }
 
 @mixin game {
-  @media (max-width: 768px) {
+  @media (max-width: 720px) {
     .game-container{
-      .restart-wrapper{
-        .restart{
-          width: 10.5vh;
-          height: 8vw;
-          font-size: 1.1vh;
-        }
-        .options-wrapper{
-          .attemps-wrapper, .time-wrapper{
-            & > h3, & > span{
-              font-size: 1.5vh;
-              margin: 0 2vh;
-            }
-          }
+      .cards-wrapper{
+        width: 90vw;
+        height: 70vh;
+        .card{
+          width: calc((90vw / 4) - 2rem);
+          height: calc((70vh / 4) - 4rem);
         }
       }
-      .cards-wrapper{
-        width: 100vw;
-        gap: 10px;
-        .card{
-          width: calc((100vw / 6) - 10px);
-          height: calc((70vh / 3) - 10px);
-        }
+      .restart-wrapper{
+        height: 20vh;
+        flex-direction: column;
       }
     }
   }
 }
 
 @mixin nav {
-  @media (max-width: 768px){
+  @media (max-width: 720px){
     .nav-container{
-      .title{
-        font-size: 2vh;
-      }
       & > ul{
         & > li{
-          font-size: 1.3vh;
-          a{
-            font-size: 1.3vh;
-          }
-        }
-      }
-    }
-  }
-}
-
-@mixin table {
-  @media (max-width: 768px){
-    .table-container{
-      table{
-        tr{
-          td, th{
-            font-size: 1.5vh;
+          margin: 1rem;
+          &:nth-child(3){
+            font-size: 0;
+            i{
+              font-size: 1.3rem;
+            }
           }
         }
       }

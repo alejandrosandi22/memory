@@ -1,5 +1,3 @@
-@use '../../../shared/sass/responsive.scss';
-
 .table-container{
     width: 100%;
     height: 97%;
@@ -7,7 +5,7 @@
     justify-content: center;
     overflow-y: scroll;
     table{
-      margin: 2.5vw;
+      margin: 2.5rem;
       width: 80%;
       height: fit-content;
       border-collapse: collapse;
@@ -17,12 +15,12 @@
           background: linear-gradient(309deg, #FF5403, #FF7800);
         }
         &:nth-child(even){
-          background: #ffe3be;
+          background: #ffefdb;
         }
         td, th{
           padding: 10px;
           width: calc(100% / 3);
-          font-size: 1.5vw;
+          font-size: 1.5rem;
           text-align: center;
           border: 1px solid linear-gradient(309deg, #fff1de, #ffe3be);
           &:nth-child(1){
@@ -35,5 +33,3 @@
       }
     }
   }
-
-@include responsive.table();
