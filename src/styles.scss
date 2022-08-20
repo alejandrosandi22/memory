@@ -25,7 +25,7 @@
 
 body{
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -40,4 +40,10 @@ body{
 
 ::-webkit-scrollbar-thumb:hover {
 background: #666;
-} 
+}
+
+@media not all and (min-resolution: .001dpcm) {
+  @supports (-webkit-appearance:none) and (stroke-color: transparent) {
+  body { min-height: -webkit-fill-available; }
+  }
+}
